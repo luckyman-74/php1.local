@@ -6,7 +6,7 @@ class GuestBook
     protected $path;
     protected $records;
 
-    public function __construct($path)
+    public function __construct(string $path)
     {
         if (!is_readable($path)) {
             die ('Не удалось открыть файл записей гостевой книги');
