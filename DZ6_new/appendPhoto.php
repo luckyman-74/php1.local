@@ -7,4 +7,3 @@ $upl = new Uploader('userFile'); //Создаем экземпляр класс�
         <br><a href="/DZ6_new/uploadForm.php">На главную</a>
         <?php
     }
-
