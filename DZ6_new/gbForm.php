@@ -15,7 +15,7 @@ $gb = new GuestBook(__DIR__ . '/data/gbData.txt');
     <br>
 <?php }?>
 
-<hr>
+    <hr>
 <p>
 <form action="/DZ6_new/appendRecord.php" method="post">
     <label for="newCom">Добавить комментарий:</label>
