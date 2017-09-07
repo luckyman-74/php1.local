@@ -6,7 +6,7 @@
 </head>
 <body>
 
-<form action="/DZ6_new/appendPhoto.php" method="post" enctype="multipart/form-data">
+<form action="/DZ7/addPhoto.php" method="post" enctype="multipart/form-data">
     <label for="file">Загрузить файл:</label>
     <input type="file" name="userFile" id="file">
     <input type="submit">

@@ -4,9 +4,10 @@ class View
 {
     protected $data = [];
 
-    public function assign(string $name, $value): void
+    public function assign(string $name, $value)
     {
         $this->data[$name] = $value;
+        return $this;
     }
 
 
