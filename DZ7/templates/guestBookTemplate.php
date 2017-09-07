@@ -10,7 +10,8 @@
 <?php
 if (!empty($guestBook)) {
 
-    foreach ($guestBook->getAllRecords() as $record) {
+    foreach ($guestBook->getRecords() as $record) {
+
         echo $record->getMessage();
         ?>
         <hr>

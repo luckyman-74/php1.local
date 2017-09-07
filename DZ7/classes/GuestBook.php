@@ -19,7 +19,7 @@ class GuestBook
         }
     }
 
-    public function getAllRecords(): array
+    public function getRecords(): array
     {
         return $this->records;
     }
@@ -32,6 +32,10 @@ class GuestBook
 
     public function save(): void
     {
-        file_put_contents($this->path, implode("\n", $this->getAllRecords()));
+        $records = [];
+        foreach ($this->records as $line) {
+            $records[] = $line->getMessage();
+        }
+        file_put_contents($this->path, implode("\n", $records));
     }
 }
