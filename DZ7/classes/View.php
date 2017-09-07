@@ -4,7 +4,7 @@ class View
 {
     protected $data = [];
 
-    public function assign(string $name, $value)
+    public function assign(string $name, $value): void
     {
         $this->data[$name] = $value;
     }
@@ -16,6 +16,7 @@ class View
         foreach ($this->data as $key => $value) {
             $$key = $value;
         }
+        /* @noinspection PhpIncludeInspection */
         require $template;
         return ob_get_clean(); //Получаем содержимое текущего буфера и затем удаляем текущий буфер
     }
