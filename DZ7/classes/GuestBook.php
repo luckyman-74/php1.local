@@ -19,7 +19,7 @@ class GuestBook
         }
     }
 
-    public function getAllRecords()
+    public function getAllRecords(): array
     {
         return $this->records;
     }
@@ -30,7 +30,7 @@ class GuestBook
         return $this;
     }
 
-    public function save()
+    public function save(): void
     {
         file_put_contents($this->path, implode("\n", $this->getAllRecords()));
     }
