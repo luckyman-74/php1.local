@@ -1,1 +1,5 @@
-<h3>dfgdfgfdgfd</h3>
+<h3>PHP-1 / Домашняя работа №7</h3>
+<hr>
+<strong>classes</strong>-Папка с классами
+<strong>data</strong>-Папка с гостевой книгой
+
