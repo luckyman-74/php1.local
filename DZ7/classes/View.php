@@ -12,19 +12,21 @@ class View
 
     public function render(string $template): string
     {
-        ob_start();
-        extract($this->data, EXTR_SKIP);
+        ob_start(); //Включаем буферизацию вывода
+        extract($this->data, EXTR_SKIP); //Импортируем переменные из массива. Если переменная с таким именем существует, ее текущее значение не будет перезаписано.
 
-        /** @noinspection PhpIncludeInspection */
-        require $template;
+        require $template; //Подгружаем наш шаблон
 
-        return ob_get_clean();
+        return ob_get_clean(); //Получаем содержимое текущего буфера и затем удаляем текущий буфер
     }
 
 
     public function display(string $template): void
     {
-        echo $this->render($template);
+        foreach ($this->data as $key => $value) {
+            $$key = $value;
+        }
+        require $template;
     }
 
 }
