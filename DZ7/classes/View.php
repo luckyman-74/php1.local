@@ -17,11 +17,9 @@ class View
         foreach ($this->data as $key => $value) { //Извлекаем переменные  из массива
             $$key = $value;
         }
-        /* @noinspection PhpIncludeInspection */
         require $template; //Подключаем шаблон. В нем будут доступны переданные данные в виде переменных
         return ob_get_clean(); //Получаем содержимое текущего буфера и затем удаляем текущий буфер
     }
-
 
     public function display(string $template): void
     {
