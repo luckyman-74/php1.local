@@ -35,7 +35,7 @@ class News
         if ($this->dataAvailability($id)) {
             return $this->news[$id];
         }
-
+        return null;
     }
 
     protected function dataAvailability(int $key): bool //Проверяем, есть ли запись в массиве по переданному id
@@ -49,12 +49,12 @@ class News
         return $this;
     }
 
-    public function save(): void
+    public function save(): bool
     {
         $newsData = [];
         foreach ($this->getNews() as $article) {
             $newsData[] = $article->title . '##' . $article->content;
         }
-        file_put_contents($this->path, implode("\n", $newsData));
+        return file_put_contents($this->path, implode("\n", $newsData));
     }
 }
