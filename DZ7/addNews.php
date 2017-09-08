@@ -1,7 +1,13 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Администратор
- * Date: 07.09.2017
- * Time: 18:10
- */
+require __DIR__ . '/classes/News.php';
+
+if (empty($_POST['title']) || empty($_POST['content'])) {
+    die;
+}
+
+$article = new Article($_POST['title'], $_POST['content']);
+
+$news = new News(__DIR__ . '/data/newsData.txt');
+$news->add($article)->save();
+
+header('Location: /DZ7/news.php');

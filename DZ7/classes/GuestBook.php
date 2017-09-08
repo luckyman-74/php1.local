@@ -34,7 +34,7 @@ class GuestBook
     {
         //Так как у нас массив записей костевой книги состоит из объектов, преобразуем объекты-записи в строки
         $records = [];
-        foreach ($this->records as $line) {
+        foreach ($this->getRecords() as $line) {
             $records[] = $line->getMessage();
         }
         file_put_contents($this->path, implode("\n", $records));

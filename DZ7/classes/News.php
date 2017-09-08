@@ -43,13 +43,19 @@ class News
         return array_key_exists($key, $this->news);
     }
 
-    public function add(Article $article)
+    public function add(Article $article): News
     {
-
+        $this->news[] = $article;
+        return $this;
     }
 
     public function save()
     {
+        $newsData = [];
+        foreach ($this->getNews() as $id => $line) {
 
+            //$newsData[] = Тут надо что-то придумать;
+        }
+        //file_put_contents($this->path, implode("\n", $newsData));
     }
 }
