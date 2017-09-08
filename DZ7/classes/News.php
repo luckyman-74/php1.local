@@ -49,12 +49,11 @@ class News
         return $this;
     }
 
-    public function save()
+    public function save(): void
     {
         $newsData = [];
         foreach ($this->getNews() as $article) {
-            $str = $article->title . '##' . $article->content;
-            $newsData[] = $str;
+            $newsData[] = $article->title . '##' . $article->content;
         }
         file_put_contents($this->path, implode("\n", $newsData));
     }
