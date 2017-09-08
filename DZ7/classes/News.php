@@ -52,10 +52,10 @@ class News
     public function save()
     {
         $newsData = [];
-        foreach ($this->getNews() as $id => $line) {
-
-            //$newsData[] = Тут надо что-то придумать;
+        foreach ($this->getNews() as $article) {
+            $str = $article->title . '##' . $article->content;
+            $newsData[] = $str;
         }
-        //file_put_contents($this->path, implode("\n", $newsData));
+        file_put_contents($this->path, implode("\n", $newsData));
     }
 }
