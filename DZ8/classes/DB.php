@@ -1,5 +1,4 @@
 <?php
-require __DIR__ . '/Config.php';
 
 class DB
 {
@@ -8,12 +7,12 @@ class DB
 //В конструкторе устанавливается и сохраняется соединение с базой данных. Параметры соединения берем из файла конфига
     public function __construct()
     {
-        $cfg = new Config;
+        $cfg = require __DIR__ . '/../config/config.php';
 
         $this->dbh = new PDO(
-            'mysql:dbname=' . $cfg->data['db']['dbname'] . ';host=' . $cfg->data['db']['host'],
-            $cfg->data['db']['user'],
-            $cfg->data['db']['password']);
+            'mysql:dbname=' . $cfg['db']['dbname'] . ';host=' . $cfg['db']['host'],
+            $cfg['db']['user'],
+            $cfg['db']['password']);
     }
 
 // выполняет запрос и возвращает true либо false в зависимости от того, удалось ли выполнение
