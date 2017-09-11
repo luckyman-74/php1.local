@@ -22,15 +22,18 @@ class DB
 
 
     //выполняет запрос, подставляет в него данные $data, возвращает данные результата запроса либо false, если выполнение не удалось.
-    public function query(string $sqlQuery, array $data = [])
+    public function query(string $sql, array $data = [])
     {
-        $sth = $this->dbh->prepare($sqlQuery);
+        $sth = $this->dbh->prepare($sql);
 
-        if (!$result = $this->execute($sqlQuery)) {
+        if (!$sth->execute($data)) {
             return false;
         }
-        $sth->execute();
+
         return $sth->fetchAll();
 
     }
 }
+
+
+

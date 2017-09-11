@@ -10,13 +10,11 @@
 
 <?php if (!empty($news)) {
 
-    foreach ($news as $key => $article) {
-        $key++;
+    foreach ($news as $article) {
         ?>
-        <a href="/DZ8/article.php?id=<?php echo $article->id; ?>">
-            <strong><?php echo $article->title; ?></strong>
+        <a href="/DZ8/article.php?id=<?php echo $article['id']; ?>">
+            <strong><?php echo $article['title']; ?></strong>
         </a>
-
         <hr>
         <?php
     }

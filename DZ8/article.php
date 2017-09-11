@@ -6,10 +6,10 @@ if (!isset($_GET['id'])) {
     die;
 }
 
-$article_id = (int)$_GET['id'];
+$articleId = (int)$_GET['id'];
 
 $db = new DB();
-$article = $db->query('SELECT * FROM news WHERE id = :id', [':id' => $article_id]);
+$article = $db->query('SELECT * FROM news WHERE id = :id', [':id' => $articleId]);
 
 if (empty($article)) {
     die;
