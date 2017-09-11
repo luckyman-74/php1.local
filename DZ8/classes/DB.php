@@ -1,7 +1,9 @@
 <?php
+
 class DB
 {
     protected $dbh;
+
 //В конструкторе устанавливается и сохраняется соединение с базой данных. Параметры соединения берем из файла конфига
     public function __construct()
     {
@@ -11,6 +13,7 @@ class DB
             $cfg['db']['userName'],
             $cfg['db']['password']);
     }
+
 // выполняет запрос и возвращает true либо false в зависимости от того, удалось ли выполнение
     public function execute(string $sqlQuery): bool
     {
@@ -26,7 +29,8 @@ class DB
         if (!$result = $this->execute($sqlQuery)) {
             return false;
         }
-
+        $sth->execute();
         return $sth->fetchAll();
+
     }
 }
