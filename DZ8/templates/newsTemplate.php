@@ -22,11 +22,20 @@
 ?>
 
 <!-- Форма добавления новости -->
-<form action="/DZ7/addNews.php" method="post">
-    <label for="title">Заголовок новости:</label>
-    <input type="text" name="title"><br>
-    <label for="content">Текст новости:</label>
-    <textarea name="content"></textarea><br>
+<form action="/DZ8/addNews.php" method="post">
+    <label for="author">Автор:</label>
+    <div>
+        <input style="width: 500px" name="author" id="author"
+    </div>
+    <br>
+    <label for="title"> Заголовок новости:</label>
+    <div>
+        <input type="text" name="title" style="width: 900px" id="title" required><br>
+    </div>
+    <label for="content"> Текст новости:</label>
+    <div>
+        <textarea cols="110" rows="10" name="content" id="content" required></textarea><br>
+    </div>
 
     <input type="submit" value="Добавить новость">
 </form>

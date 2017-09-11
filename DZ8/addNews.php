@@ -1,13 +1,21 @@
 <?php
-require __DIR__ . '/classes/News.php';
+require __DIR__ . '/classes/DB.php';
 
-if (empty($_POST['title']) || empty($_POST['content'])) {
+if (empty($_POST['title']) || empty($_POST['content']) || empty($_POST['author'])) {
     die;
 }
+$db = new DB();
 
-$article = new Article($_POST['title'], $_POST['content']);
+$sqlQuery = 'INSERT INTO news (title, content, author) VALUES (:title, :content, :author)';
+$data = [
+    ':title' => $_POST['title'],
+    ':content' => $_POST['content'],
+    ':author' => $_POST['author']
+];
 
-$news = new News(__DIR__ . '/data/newsData.txt');
-$news->add($article)->save();
+if (!$db->execute($sqlQuery, $data)) {
+    die('Ошибка добавления записи');
+}
 
-header('Location: /DZ7/news.php');
+header('Location: /DZ8/index.php');
+

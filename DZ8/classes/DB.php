@@ -15,16 +15,16 @@ class DB
     }
 
 // выполняет запрос и возвращает true либо false в зависимости от того, удалось ли выполнение
-    public function execute(string $sqlQuery): bool
+    public function execute(string $sqlQuery, array $data = []): bool
     {
-        return $this->dbh->prepare($sqlQuery)->execute();
+        return $this->dbh->prepare($sqlQuery)->execute($data);
     }
 
 
     //выполняет запрос, подставляет в него данные $data, возвращает данные результата запроса либо false, если выполнение не удалось.
-    public function query(string $sql, array $data = [])
+    public function query(string $sqlQuery, array $data = [])
     {
-        $sth = $this->dbh->prepare($sql);
+        $sth = $this->dbh->prepare($sqlQuery);
 
         if (!$sth->execute($data)) {
             return false;
