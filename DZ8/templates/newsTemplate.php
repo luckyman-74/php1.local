@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
 
-    <title>PHP-1. ДР №7</title>
+    <title>PHP-1. ДР №8</title>
 </head>
 <body>
 <h1>Новости</h1>
 
 <?php if (!empty($news)) {
 
-    foreach ($news->getNews() as $key => $article) {
+    foreach ($news as $key => $article) {
+        $key++;
         ?>
-        <a href="/DZ7/article.php?id=<?php echo $key; ?>">
+        <a href="/DZ8/article.php?id=<?php echo $article->id; ?>">
             <strong><?php echo $article->title; ?></strong>
         </a>
-        <br>
-        <em><?php echo $article->getShortenedNews(300); ?></em>
+
         <hr>
         <?php
     }

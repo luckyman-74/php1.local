@@ -1,6 +1,9 @@
 <?php
-require __DIR__ . '/classes/GuestBook.php';
+require __DIR__ . '/classes/DB.php';
 require __DIR__ . '/classes/View.php';
-$guestBook = new GuestBook(__DIR__ . '/data/gbData.txt');
+$dataBase = new DB();
+$news = $dataBase->query('SELECT id,title FROM news ORDER BY id DESC'); //все новости (самая новая - наверху)
+
 $view = new View;
-$view->assign('guestBook', $guestBook)->display(__DIR__ . '/templates/guestBookTemplate.php');
+$view->assign('news', $news)->display(__DIR__ . '/templates/newsTemplate.php');
+
