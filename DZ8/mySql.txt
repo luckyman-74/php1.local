@@ -13,29 +13,19 @@ INSERT INTO news (title, text, author) VALUES
   ('Первая новость', 'Текст первой новости ', 'Admin'),
   ('Вторая новость', 'Текст второй новости', 'Admin'),
   ('Третья новость', 'Текст третьей новости', 'User'),
-  ('Ченвертая новость', 'Текст четвертой новости', 'Master');
+  ('Четвертая новость', 'Текст четвертой новости', 'Master');
 
-********************************************************************************************
------- Выборка всех записей, конкретных столбцов отсортированных по id в обратном порядке
-SELECT
-  id,
-  title
-FROM news
-ORDER BY id DESC;
+------ Получение данных из конкретных столбцов таблицы news отсортированный по полю id в порядке убывания.
 
+SELECT id,title,text,author FROM news ORDER BY id DESC;
 
------- Выборка одной записи
-SELECT *
-FROM news
-WHERE id = :id
-LIMIT 1;
+------ Добавление новой новости в таблицу news
 
+INSERT INTO news (title, text, author) VALUES (:title, :text, :author);
 
--- Вставка одной записи
-INSERT INTO news (title, body, author) VALUES
-  (:title, :body, :author);
-
-
--- Удаление одной записи
-DELETE FROM news
-WHERE id = :id
+(подстановки брались из массива $data):
+$data = [
+    ':title' => $_POST['title'],
+    ':text' => $_POST['text'],
+    ':author' => $_POST['author']
+];

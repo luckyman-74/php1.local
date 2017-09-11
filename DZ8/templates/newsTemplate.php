@@ -15,6 +15,10 @@
         <a href="/DZ8/article.php?id=<?php echo $article['id']; ?>">
             <strong><?php echo $article['title']; ?></strong>
         </a>
+        <p>
+            <?php echo $article['text']; ?>
+        </p>
+        <em>Автор: <?php echo $article['author']; ?> </em>
         <hr>
         <?php
     }
@@ -32,9 +36,9 @@
     <div>
         <input type="text" name="title" style="width: 900px" id="title" required><br>
     </div>
-    <label for="content"> Текст новости:</label>
+    <label for="text"> Текст новости:</label>
     <div>
-        <textarea cols="110" rows="10" name="content" id="content" required></textarea><br>
+        <textarea cols="110" rows="10" name="text" id="text" required></textarea><br>
     </div>
 
     <input type="submit" value="Добавить новость">

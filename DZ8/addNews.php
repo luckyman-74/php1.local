@@ -1,21 +1,20 @@
 <?php
 require __DIR__ . '/classes/DB.php';
 
-if (empty($_POST['title']) || empty($_POST['content']) || empty($_POST['author'])) {
+if (empty($_POST['title']) || empty($_POST['text']) || empty($_POST['author'])) {
     die;
 }
 $db = new DB();
 
-$sqlQuery = 'INSERT INTO news (title, content, author) VALUES (:title, :content, :author)';
+$sqlQuery = 'INSERT INTO news (title, text, author) VALUES (:title, :text, :author)';
 $data = [
     ':title' => $_POST['title'],
-    ':content' => $_POST['content'],
+    ':text' => $_POST['text'],
     ':author' => $_POST['author']
 ];
 
-if (!$db->execute($sqlQuery, $data)) {
+if (false === $db->execute($sqlQuery, $data)) {
     die('Ошибка добавления записи');
 }
-
 header('Location: /DZ8/index.php');
 

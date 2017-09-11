@@ -20,16 +20,14 @@ class DB
         return $this->dbh->prepare($sqlQuery)->execute($data);
     }
 
-
     //выполняет запрос, подставляет в него данные $data, возвращает данные результата запроса либо false, если выполнение не удалось.
     public function query(string $sqlQuery, array $data = [])
     {
         $sth = $this->dbh->prepare($sqlQuery);
 
-        if (!$sth->execute($data)) {
+        if (false === $sth->execute($data)) {
             return false;
         }
-
         return $sth->fetchAll();
 
     }
