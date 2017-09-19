@@ -21,7 +21,7 @@ class View
         return ob_get_clean(); //Получаем содержимое текущего буфера и затем удаляем текущий буфер
     }
 
-    public function display(string $template): void
+    public function display(string $template)
     {
         echo $this->render($template); //Пропускаем шаблон через метод render и выводим его в поток
     }
